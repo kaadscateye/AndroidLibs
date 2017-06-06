@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/butSendBrocastId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="54dp"
+        android:layout_marginTop="103dp"
+        android:text="发送广播" />
+
+    <Button
+        android:id="@+id/butwaitId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/butSendBrocastId"
+        android:layout_below="@+id/butSendBrocastId"
+        android:layout_marginTop="22dp"
+        android:text="唤醒" />
+
+</RelativeLayout>
