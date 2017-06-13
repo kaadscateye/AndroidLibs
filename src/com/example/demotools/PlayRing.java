@@ -7,8 +7,8 @@ import android.media.MediaPlayer;
 
 public class PlayRing {
 	private static MediaPlayer mp=null;
-	public static String strMusic[] = { "/mnt/sdcard/external_sd/hongmeigui.mp3",
-			"/mnt/sdcard/external_sd/taiduo.mp3" };
+	private String dooringpath = "/storage/emulated/0/door/";
+	public static String strMusic[] = { "door0.mp3","door1.mp3","door2.mp3","door3.mp3"};
 
 	public PlayRing() {
 		// TODO Auto-generated constructor stub
@@ -16,16 +16,18 @@ public class PlayRing {
 			mp= new MediaPlayer();
 	}
 	public void playMusicFile(String musicName,final int playTime) {
-		File file = new File(musicName);
+		String playfile = dooringpath+musicName;
+		File file = new File(playfile);
 	
 		if (!file.exists()) {
-			LogUtils.e("not found file :"+musicName);
+			LogUtils.e("not found file :"+playfile);
 			return;
 		}
 		try {
-			mp.stop();
+			if(mp.isPlaying())
+				mp.stop();
 			mp.reset();
-			mp.setDataSource(musicName);
+			mp.setDataSource(playfile);
 			mp.prepare();
 			mp.seekTo(0);
 			mp.start();
